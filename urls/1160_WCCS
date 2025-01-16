@@ -1,5 +1,7 @@
 # bin/urls/1160_WCCS
 
+export https_proxy=152.26.229.34:9443
+
 URL=https://ice64.securenetsystems.net/WCCS?playSessionID=EDAF292A-C8FC-06BD-58277E22DC517FFF
 
 # For station: https://www.wccsradio.com

@@ -1,0 +1,3 @@
+0 * * * * /home/stream/bin/stream_saver.sh > /home/stream/bin/logs/stream_saver.log 2>&1
+1 * * * * /home/stream/bin/legacy.sh
+0 0 * * * /home/stream/bin/log_file_cleanup.sh

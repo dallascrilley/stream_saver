@@ -19,8 +19,8 @@ if ! ffprobe -i "$file" -show_streams -select_streams a:0 &>/dev/null; then
     exit 1
 fi
 
-# Repack raw MP3 to standard MP3
-ffmpeg -i "$file" -movflags +faststart -codec:copy \
+# Repack raw MP3 to standard MP3 with 128 kbps bitrate
+ffmpeg -i "$file" -movflags +faststart -codec:a libmp3lame -b:a 128k output.mp3 \
     "${file%.rawmp3}.mp3" || { echo "Failed to repack $file"; exit 1; }
 
 echo "Repacked raw MP3 to MP3, removing $file"

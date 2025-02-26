@@ -19,8 +19,8 @@ if ! ffprobe -i "$file" -show_streams -select_streams a:0 &>/dev/null; then
     exit 1
 fi
 
-# Repack AAC to M4A
-ffmpeg -i "$file" -movflags +faststart -bsf:a aac_adtstoasc -codec:copy \
+# Repack AAC to M4A with 128 kbps bitrate
+ffmpeg -i "$file" -movflags +faststart -c:a aac -b:a 64k output.m4a \
     "${file%.aac}.m4a" || { echo "Failed to repack $file"; exit 1; }
 
 echo "Repacked AAC to M4A, removing $file"
